@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>{{page_title}}</title>
+    </head>
+    <body>
+        <h1>
+        {% if weather %}
+            Погода в Москве на {{weather.observation_time}}, {{weather.temp_C}}, ощущается как {{weather.FeelsLikeC}}, скорость ветра = {{weather.windspeedKmph}} 
+        {% else %}
+            Cервис погоды временно недоступен
+        </h1>
+        {% endif %}
+        <ol>
+            <li>Один</li>
+            <li>Два</li>
+            <li>Три</li>
+            <li>Четыре</li>
+        </ol>
+    </body>
+</html>
+ 

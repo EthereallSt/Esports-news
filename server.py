@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from weather import weather_by_city
 
 app = Flask(__name__)
@@ -6,21 +6,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    title = "Прогноз погоды"
     weather = weather_by_city('Moscow,Russia')
-    if weather:
-        weather_text = f'Погода в Москве на {weather["observation_time"]}, {weather["temp_C"]}, ощущается как {weather["FeelsLikeC"]}, скорость ветра = {weather["windspeedKmph"]}'
-    else:
-        weather_text = "Сервис временно недоступен"
-    return f"""<html>
-        <head>
-            <title>Прогноз погоды</title>
-        </head>
-        <body>
-            <h1> </h1>
-        </body>
-    </html>
-    """
+    return render_template('index.html', page_title=title, weather=weather)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
