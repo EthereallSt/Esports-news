@@ -12,6 +12,7 @@ def weather_by_city(city_name):
     }
     try:
         result = requests.get(weather_url, params=params)
+        result.raise_for_status()
         weather = result.json()
         if 'data' in weather:   #Проверка есть ли дата в ответе
             if 'current_condition' in weather['data']:

@@ -8,9 +8,18 @@ app = Flask(__name__)
 def index():
     weather = weather_by_city('Moscow,Russia')
     if weather:
-        return f'Погода в Москве на {weather["observation_time"]}, {weather["temp_C"]}, ощущается как {weather["FeelsLikeC"]}, скорость ветра = {weather["windspeedKmph"]}'
+        weather_text = f'Погода в Москве на {weather["observation_time"]}, {weather["temp_C"]}, ощущается как {weather["FeelsLikeC"]}, скорость ветра = {weather["windspeedKmph"]}'
     else:
-        return "Сервис временно недоступен"
+        weather_text = "Сервис временно недоступен"
+    return f"""<html>
+        <head>
+            <title>Прогноз погоды</title>
+        </head>
+        <body>
+            <h1> </h1>
+        </body>
+    </html>
+    """
 
 
 if __name__ == "__main__":
