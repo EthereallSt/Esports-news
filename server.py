@@ -1,4 +1,5 @@
-from flask import Flask
+from unittest import result
+from flask import Flask, render_template
 from weather import weather_by_city
 
 app = Flask(__name__)
@@ -6,12 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    title = "Страница прогноза погоды"
     weather = weather_by_city('Moscow,Russia')
-    if weather:
-        return f'Погода в Москве на {weather["observation_time"]}, {weather["temp_C"]}, ощущается как {weather["FeelsLikeC"]}, скорость ветра = {weather["windspeedKmph"]}'
-    else:
-        return "Сервис временно недоступен"
-
-
+    return render_template('index.html', title=title, weather=weather)
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
