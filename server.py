@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from weather import weather_by_city
 from  python_org_news import get_news
 
+
 app = Flask(__name__)
 
 
