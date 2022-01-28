@@ -12,7 +12,7 @@ def get_html(url):
         print("Сетевая ошибка")
         return False
 
-def get_news():
+def get_python_news():
     html = get_html("https://www.python.org/blogs/")
     if html:
         soup = BeautifulSoup(html, "html.parser")
