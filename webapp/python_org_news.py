@@ -11,6 +11,7 @@ def get_html(url):
     except(requests.RequestExceptions, ValueError):
         print("Сетевая ошибка")
         return False
+        
 
 def get_python_news():
     html = get_html("https://www.python.org/blogs/")
