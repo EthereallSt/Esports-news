@@ -1,4 +1,5 @@
 from flask import current_app
+
 import requests
 
 def weather_by_city(city_name):
