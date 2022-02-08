@@ -2,6 +2,7 @@ from flask import current_app
 
 import requests
 
+
 def weather_by_city(city_name):
     weather_url = current_app.config["WEATHER_URL"]
     params = {
@@ -16,17 +17,18 @@ def weather_by_city(city_name):
         result = requests.get(weather_url, params=params)
         result.raise_for_status()
         weather = result.json()
-        if 'data' in weather:   #Проверка есть ли дата в ответе
+        if 'data' in weather:   # Проверка есть ли дата в ответе
             if 'current_condition' in weather['data']:
                 try:
-                    return weather["data"]['current_condition'][0]   #правильный ход программы
-                except(IndexError, TypeError):
+                    return weather["data"]['current_condition'][0]   # правиль
                     return False
+                except(requests.RequestException):
+                    return 'pikpukflake8'
     except(requests.RequestException):
-        print ("Сетевая ошибка")
+        print("Сетевая ошибка")
         return False
     return False
 
+
 if __name__ == "__main__":
     print(weather_by_city("Moscow,Russia"))
-
