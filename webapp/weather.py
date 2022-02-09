@@ -11,7 +11,7 @@ def weather_by_city(city_name):
         "format": "json",
         "num_of_days": 1,
         "showlocaltime": "yes",
-        "lang": "ru"
+        "lang": "ru",
     }
     try:
         result = requests.get(weather_url, params=params)
@@ -20,10 +20,10 @@ def weather_by_city(city_name):
         if 'data' in weather:   # Проверка есть ли дата в ответе
             if 'current_condition' in weather['data']:
                 try:
-                    return weather["data"]['current_condition'][0]   # правиль
+                    return weather["data"]['current_condition'][0]   # correct way of programm
                     return False
-                except(requests.RequestException):
-                    return 'pikpukflake8'
+                except(Exception):
+                    print('не правильный ход программы')
     except(requests.RequestException):
         print("Сетевая ошибка")
         return False
