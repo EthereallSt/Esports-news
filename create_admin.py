@@ -12,7 +12,7 @@ with app.app_context():
     if User.query.filter(User.username == username).count():
         print('Пользователь с таким именем уже существует')
         sys.exit(0)
-    
+
     password1 = getpass('Введите пароль')
     password2 = getpass('Введите пароль')
 
