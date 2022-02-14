@@ -1,5 +1,5 @@
 [flake8]
 exclude = .git,__pycache__,.venv,.db,
-max-complexity = 10
+max-complexity = 11
 max-line-length = 120
 
