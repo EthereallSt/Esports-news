@@ -8,3 +8,5 @@ WEATHER_URL = 'http://api.worldweatheronline.com/premium/v1/weather.ashx'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '..', 'webapp.db')
 
 SECRET_KEY = 'pasodpojfeiofjoewqifwoeif'
+
+SQLALCHEMY_TRACK_MODIFICATIONS = False

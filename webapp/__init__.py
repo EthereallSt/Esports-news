@@ -1,6 +1,6 @@
 from flask import Flask, flash, render_template, redirect, url_for
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
-
+from flask_migrate import Migrate
 
 from webapp.forms import LoginForm
 from webapp.model import db, News, User
@@ -11,6 +11,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
     db.init_app(app)
+    migrate = Migrate(app, db)
 
     login_manager = LoginManager()
     login_manager.init_app(app)

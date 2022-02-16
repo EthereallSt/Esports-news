@@ -11,6 +11,7 @@ class News(db.Model):
     url = db.Column(db.String, unique=True, nullable=False)
     published = db.Column(db.DateTime, nullable=False)
     text = db.Column(db.Text, nullable=True)
+    email = db.Column(db.String(50))
 
 
 def __repr__(self):
