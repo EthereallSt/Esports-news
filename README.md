@@ -9,16 +9,11 @@
 
 Для запуска:
 
--Linux
-'''
-    poetry install
-    poetry shell
-```
--Windows
+-Linux/-Windows
 ```
     poetry install
     poetry shell
-```    
+```   
 Run app:
 ```
     python app.py
